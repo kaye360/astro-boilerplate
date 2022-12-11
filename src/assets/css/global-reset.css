@@ -1,0 +1,55 @@
+*, *::before, *::after {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* scroll-padding: var(--navbar-scroll-padding); */
+}
+
+body {
+  min-height : 100vh;
+  line-height : 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg { 
+  max-width: 100%;
+}
+
+ul {
+  padding-left : 2rem;
+}
+
+p {
+  margin-bottom: 1.7rem;
+  line-height: 1.7rem;
+}
+
+button {
+  border : 0;
+  outline : 0;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  background-color: #333;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
