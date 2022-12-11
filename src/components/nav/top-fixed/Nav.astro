@@ -5,19 +5,30 @@ import Logo from '../../logo/Logo.astro'
 
 const { activePage } = Astro.props
 
+/*
+List of Nav Links
+If a link is a parent of a submenu, add subMenu: true
+If a page is a child of a submenu, add subLink : {parent name}
+If a page is a CTA, add ctaLink: true
+Active nav links are automatically caught
+*/
 const pages = [
   { title: 'Home',    link: '/'                       },
   { title: 'About',   link: '/about'                  },
   { title: 'Contact', link: '/contact'                },
   { title: 'More',    link: '#',       subMenu: true },
   { title: 'SubLink', link: '/',       subLink: true },
+  { title: 'CTALink', link: '/cta',    ctaLink: true },
 ]
 
+/*
+Social Media Links
+*/
 const socials = [
-  { site :  'Facebook',    link : 'https://facebook.com', icon: '' },
-  { site :  'Twitter',    link : 'https://Twitter.com',   icon: '' },
-  { site :  'Instagram',  link : 'https://instagram.com', icon: '' },
-  { site :  'TikTok',     link : 'https://tiktok.com',    icon: '' },
+  { name :  'Facebook',   link : 'https://facebook.com',  icon: 'FB' },
+  { name :  'Twitter',    link : 'https://Twitter.com',   icon: 'TW' },
+  { name :  'Instagram',  link : 'https://instagram.com', icon: 'IN' },
+  { name :  'TikTok',     link : 'https://tiktok.com',    icon: 'TK' },
 ]
 ---
 
@@ -27,55 +38,95 @@ const socials = [
 
   <MobileButton />
 
-  <ul>
+  <ul class="main-nav">
     { 
-      pages.map( page => <li><a href={page.link}>{page.title}</a></li> )
+    pages.map( page => 
+    <li>
+      <a 
+        href={page.link} 
+        class={ 
+          ( activePage === page.title ? 'active-nav-link' : ''  ) ||
+          ( page.subMenu ? 'nav-dropdown-link' : '') ||
+          ( page.subLink ? 'nav-sub-link' : '') ||
+          ( page.ctaLink ? 'nav-cta' : '') 
+        }
+      >
+        {page.title}
+      </a>
+    </li> )
     }
   </ul>
-
-      
-  <!-- <ul class="nav-links">
-      <li><a href="index.php" class="nav-link <?php echo ($page == 'home') ? 'nav-link-active' : ''; ?> ">Home</a></li>
-      <li><a href="fonts.php" class="nav-link <?php echo ($page == 'fonts') ? 'nav-link-active' : ''; ?> ">Font Demo</a></li>
-      <li><a href="about.php" class="nav-link <?php echo ($page == 'about') ? 'nav-link-active' : ''; ?> ">About</a></li>
-      <li>
-          <a href="#" class="nav-link nav-dropdown-link <?php echo ($page == 'link') ? 'nav-link-active' : ''; ?> ">More</a>
-          <ul class="nav-links-submenu">
-              <li><a href="#" class="nav-sub-link">Link</a></li>
-              <li><a href="#" class="nav-sub-link">Link Link</a></li>
-              <li><a href="#" class="nav-sub-link">Link</a></li>
-              <li><a href="#" class="nav-sub-link">Link Link</a></li>
-              <li><a href="#" class="nav-sub-link">Link</a></li>
-          </ul>
-      </li>
-      <li><a href="contact.php" class="nav-link-cta <?php echo ($page == 'contact') ? 'nav-link-active' : ''; ?> ">Contact</a></li>
+  
+  <ul class="socials">
+    { 
+    socials.map( site => <li><a href={site.link}> {site.icon}  </a></li> )
+    } 
   </ul>
-
-  <ul class="nav-socials">
-      <li><a href="#" class="nav-social-link"><img src="./img/social-icons/facebook.svg"></a></li>
-      <li><a href="#" class="nav-social-link"><img src="./img/social-icons/instagram.svg"></a></li>
-      <li><a href="#" class="nav-social-link"><img src="./img/social-icons/tiktok.svg"></a></li>
-  </ul> -->
-
+  
 </nav>
 
+
+      
+
 <style>
+
+nav {
+  position : fixed;
+  inset : 0 0 auto 0;
+  z-index : 500;
+
+  padding : 2vw;
+  display : flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: hsl( var(--clr-primary-6) );
+  color: hsl( var(--clr-primary-2) );
+  font-size: var(--font-size-1);
+}
+
   
 ul {
     display : none;
-    align-items: center;
-    gap : 1rem;
-    opacity: 0.8;
 }
+
 
 @media screen and (min-width : 900px) {
-  ul { display : flex; }
+  ul { 
+    display : flex; 
+    justify-content: flex-end;
+    align-items: center;
+    gap : var(--font-size-1)
+  }
+
+  ul.main-nav {
+  }   
 }
-
-
 
 li {
     position: relative;
+}
+
+a {
+  color : hsl( var(--nav-link-clr) );
+}
+
+a:hover, a:focus {
+  color : hsl( var(--nav-link-hover-clr) );
+}
+
+.nav-cta {
+  outline : 1px solid hsl( var(--clr-primary-5) );
+  outline-offset: 5px;
+}
+
+</style>
+
+<style is:global>
+
+.mobile-menu-is-open ul {
+  display : block;
+  border : 1px solid red;
 }
 
 </style>
