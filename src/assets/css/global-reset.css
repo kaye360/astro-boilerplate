@@ -9,12 +9,14 @@
 
 html {
   scroll-behavior: smooth;
-  /* scroll-padding: var(--navbar-scroll-padding); */
+  scroll-padding: var(--navbar-scroll-padding);
 }
 
 body {
   min-height : 100vh;
-  line-height : 1.5rem;
+  font-weight: 300;
+  font-size: var(--font-size-1);
+  line-height : calc( var(--font-size-1) * 1.5 );
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,4 +56,18 @@ nav ul {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: var(--font-size-4);
+  line-height: var(--font-size-4);
+  margin-block : var(--font-size-4)
+}
+
+h2 {
+  font-weight: 500;
+  font-size: var(--font-size-3);
+  line-height: var(--font-size-3);
+  margin-block: var(--font-size-3);
 }

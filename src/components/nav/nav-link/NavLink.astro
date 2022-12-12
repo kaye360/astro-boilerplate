@@ -1,0 +1,43 @@
+---
+import navDropdown from '../../../assets/img/nav-dropdown.svg';
+const { page, activePage } = Astro.props;
+---
+
+
+<a 
+  href={page.link} 
+  class={` nav-link
+    ${ page.ctaLink && 'cta-nav-link' }
+    ${ page.title === activePage && 'active-nav-link' }
+  `}
+>
+
+  { page.title }
+  { page.subLinks && <img src={navDropdown} alt="Drop down icon" /> }
+
+</a>
+
+
+<style>
+  
+a { 
+  position: relative;
+  display : flex;
+  align-items: center;
+  color : hsl( var(--nav-link-clr) );
+}
+
+a:hover, a:focus {
+  color : hsl( var(--nav-link-hover-clr) );
+}
+
+.active-nav-link {
+  text-decoration: underline;
+}
+
+.cta-nav-link {
+  outline : 1px solid hsl( var(--clr-primary-5) );
+  outline-offset: 5px;
+}
+
+</style>

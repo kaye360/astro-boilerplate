@@ -51,8 +51,8 @@
   --body-bg-clr : 0, 0%, 100%;
 
   /* Margin/Padding defaults */
-  --padding-x-default : 2vw;
-  --padding-y-default : 3rem;
+  --spacing-x-default : 2vw;
+  --spacing-y-default : 3rem;
 
   /* Container Widths */
   --width-xs : 750px;

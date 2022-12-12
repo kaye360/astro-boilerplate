@@ -1,6 +1,53 @@
 ---
+import bg from './bg.svg'
 ---
 
-<div>
-  Hero
-</div>
+<section>
+
+  <div class="hero">
+    <h1>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, illo ad.
+    </h1>
+  
+    <div class="sub-h1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure vel soluta velit? Neque perferendis asperiores perspiciatis labore? Ipsa, iure nobis.
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<style>
+
+section {
+  display : grid;
+  place-items: center;
+  min-height : 75vh;
+  padding-inline : var(--spacing-x-default);
+  padding-block : 100px;
+
+  background-image: url('./bg.svg');
+  background-size: cover;
+
+  text-align: center;
+}
+
+.hero {
+
+}
+
+h1 {
+  max-width: 20ch;
+  margin-inline: auto;
+}
+
+.sub-h1 {
+  font-size : var(--font-size-2);
+  line-height : calc( var(--font-size-2) * 1.5);
+  max-width: 40ch;
+  font-weight : 500;
+}
+
+</style>
