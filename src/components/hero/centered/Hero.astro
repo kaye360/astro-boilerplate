@@ -1,19 +1,27 @@
 ---
-import bg from './bg.svg'
+import CallToAction from '../../cta-link/CallToAction.astro';
 ---
 
 <section>
 
-  <div class="hero">
-    <h1>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, illo ad.
-    </h1>
-  
-    <div class="sub-h1">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure vel soluta velit? Neque perferendis asperiores perspiciatis labore? Ipsa, iure nobis.
-    </div>
+<div class="hero">
 
-  </div>
+<h1 class="my0">
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, illo ad.
+</h1>
+
+<div class="sub-h1 my0">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure vel soluta velit? Neque perferendis asperiores perspiciatis labore? Ipsa, iure nobis.
+</div>
+
+<CallToAction 
+  primaryText="View Products"
+  primaryLink="/about"
+  secondaryText="Learn More"
+  secondaryLink="/contact"
+/>
+
+</div><!-- .hero -->
 
 </section>
 
@@ -35,7 +43,9 @@ section {
 }
 
 .hero {
-
+  display : flex;
+  flex-direction: column;
+  gap : 2rem;
 }
 
 h1 {

@@ -1,0 +1,82 @@
+---
+
+const { primaryLink, primaryText, secondaryLink, secondaryText} = Astro.props
+---
+
+<div>
+
+<a href={ primaryLink } class="primaryCTA">
+  {primaryText}
+</a>
+
+<a href={ secondaryLink } class="secondaryCTA">
+  {secondaryText}
+</a>
+
+</div>
+
+
+<style>
+
+/* Default Links */
+
+a {
+  padding : 0.4rem 1rem;
+  font-weight: 500;
+  color: hsl( var(--clr-secondary-7) );
+}
+
+a:hover, a:focus {
+  color: hsl( var(--clr-secondary-6) );
+}
+
+/* Primary Base State */
+
+.primaryCTA {
+  position: relative;
+  z-index : 0;
+}
+
+.primaryCTA::before, .primaryCTA::after {
+  content : '';
+  position: absolute;
+  inset : 0;
+  transition: all 250ms ease-in-out;
+}
+
+.primaryCTA::before {
+  z-index: -1;
+
+  transform-origin: left;
+  transform: scaleX(0);
+  
+  background-color: hsl( var(--clr-tertiary-3) );
+}
+
+.primaryCTA::after {
+  z-index : -2;
+  transform-origin: right;
+  background-color: hsl( var(--clr-secondary-3) );
+}
+
+/* Primary Hover State */
+
+.primaryCTA:hover::after, .primaryCTA:focus::after {
+  transform: scaleX(0);
+}
+
+.primaryCTA:hover:before, .primaryCTA:focus:before {
+  transform: scaleX(1);
+}
+
+/* Secondary */
+
+.secondaryCTA {
+  color: hsl( var(--clr-secondary-7) );
+}
+
+.secondaryCTA:hover, .secondaryCTA:focus {
+  text-decoration: underline;
+}
+  
+</style>

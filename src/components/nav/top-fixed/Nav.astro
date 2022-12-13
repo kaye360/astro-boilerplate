@@ -1,9 +1,9 @@
 ---
-
 import MobileButton from '../../mobile-menu-btn/MobileButton.astro';
 import Logo from '../../logo/Logo.astro';
 import NavLink from '../nav-link/NavLink.astro';
 
+import SocialIcon from '../../social-icon/SocialIcon.astro';
 const { activePage } = Astro.props;
 
 /*
@@ -29,14 +29,17 @@ const pages = [
   { title: 'CTALink', link: '/cta',    ctaLink: true },
 ];
 
-/*
-Social Media Links
-*/
 const socials = [
-  { name :  'Facebook',   link : 'https://facebook.com',  icon: 'FB' },
-  { name :  'Twitter',    link : 'https://Twitter.com',   icon: 'TW' },
-  { name :  'Instagram',  link : 'https://instagram.com', icon: 'IN' },
-  { name :  'TikTok',     link : 'https://tiktok.com',    icon: 'TK' },
+  { name :  'Facebook',     link : 'https://facebook.com',  },
+  { name :  'Instagram',    link : 'https://instagram.com', },
+  { name :  'TikTok',       link : 'https://tiktok.com',    },
+  // { name :  'Twitter',   link : 'https://twitter.com',   },
+  // { name :  'LinkedIn',  link : '',    },
+  // { name :  'Pinterest', link : '',    },
+  // { name :  'GitHub',    link : '',    },
+  // { name :  'Reddit',    link : '',    },
+  // { name :  'WhatsApp',  link : '',    },
+  // { name :  'YouTube',   link : '',    },
 ]
 ---
 
@@ -44,30 +47,38 @@ const socials = [
 
 <nav class="container">
 
-  <Logo />
+<Logo />
 
-  <MobileButton />
+<MobileButton />
 
-  <ul class="main-nav">
-    { 
-    pages.map( page => 
-    <li>
-      <NavLink page={page} activePage={activePage} />
-      {
-      page.subLinks &&
-        <ul class="dropdown-menu">
-          { page.subLinks.map( page => <li><NavLink page={page} activePage={activePage} /></li> )}
-        </ul>
-      }
-    </li> )
+<ul class="main-nav">
+{ 
+pages.map( page => 
+  <li class={ page.ctaLink ? 'cta-nav-li' : '' }>
+    <NavLink page={page} activePage={activePage} />
+    {
+    page.subLinks &&
+      <ul class="dropdown-menu">
+        { page.subLinks.map( page => 
+          <li>
+            <NavLink page={page} activePage={activePage} />
+          </li> 
+        )}
+      </ul>
     }
-  </ul>
-  
-  <ul class="socials">
-    { 
-    socials.map( site => <li><a href={site.link}> {site.icon}  </a></li> )
-    } 
-  </ul>
+  </li> )
+}
+</ul><!-- .main-nav -->
+
+<ul class="socials">
+{ socials.map( social => 
+  <li>
+  <a href={social.link} target="_blank"> 
+    <SocialIcon name={social.name} fill="white" size="24" />
+  </a>
+  </li>
+)} 
+</ul>
 
 </nav>
 
@@ -102,7 +113,15 @@ nav::before {
   background-color: hsl( var(--clr-primary-6) );
 }
 
-ul {
+.main-nav { 
+  display : flex; 
+  justify-content: flex-end;
+  align-items: center;
+  gap : var(--font-size-1);
+  margin-inline : 2rem;
+}
+
+.socials {
     display : none;
 }
 
@@ -110,16 +129,32 @@ li {
     position: relative;
 }
 
+li:not( .cta-nav-li ) {
+  display : none;
+}
+
 /* Desktop/Tablet */
 @media screen and (min-width : 900px) {
 
-  ul { 
-    display : flex; 
-    justify-content: flex-end;
-    align-items: center;
-    gap : var(--font-size-1);
-  }
+.main-nav {
+  margin : 0;
+}
+.socials {
+  display :flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap : var(--font-size-1);
+}
 
+li:not( .cta-nav-li ) {
+  display :inline-flex;
+  align-items: center;
+}
+
+a {
+  display : inline-block;
+  line-height: 0;
+}
 }
 
 </style>
@@ -155,6 +190,9 @@ li {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+.mobile-menu-is-open .dropdown-menu {
+  /* position : relative; */
+}
 
 .mobile-menu-is-open .main-nav {
   position : absolute;
@@ -166,11 +204,16 @@ li {
   justify-content: space-between;
   align-items: flex-end;
   
-  padding : 20vh 2vw;
+  margin : 0;
+  padding : 20vh 4vw;
   height : 100vh;
 
   font-size: var(--font-size-4);
   background-color : hsl( var(--clr-primary-6) );
+}
+
+.mobile-menu-is-open .main-nav li {
+  display : flex;
 }
   
 

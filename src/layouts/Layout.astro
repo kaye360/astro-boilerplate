@@ -1,4 +1,5 @@
 ---
+import Skip from '../components/SkipToContent/Skip.astro';
 import '../assets/css/main.css'
 const { title } = Astro.props;
 ---
@@ -15,6 +16,8 @@ const { title } = Astro.props;
 
 	</head>
 	<body>
+		<Skip />
+
 		<slot />
 	</body>
 </html>
