@@ -1,0 +1,66 @@
+---
+import CallToAction from '../../cta-link/CallToAction.astro';
+---
+
+<section>
+
+<div class="hero">
+
+  <h1 class="my0">
+    Lorem ipsum dolor sit, amet consectetur adipisicing!
+  </h1>
+
+  <div class="sub-h1 my0">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure vel soluta velit? Neque perferendis asperiores perspiciatis labore? Ipsa, iure nobis.
+  </div>
+
+  <CallToAction 
+    primaryText="View Products"
+    primaryLink="/about"
+    secondaryText="Learn More"
+    secondaryLink="/contact"
+  />
+
+</div><!-- .hero -->
+
+</section>
+
+
+
+<style>
+
+section {
+  display : grid;
+  place-items: center;
+  min-height : 75vh;
+  padding-inline : var(--spacing-x-default);
+  padding-block : 100px;
+
+  background-color: hsl( var(--clr-primary-7) );
+  background-image: url('/hero-img-ski.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+
+  color : hsl( var(--clr-primary-2) );
+}
+
+
+.hero {
+  display : flex;
+  flex-direction: column;
+  gap : 2rem;
+}
+
+h1 {
+  max-width: 20ch;
+}
+
+.sub-h1 {
+  font-size : var(--font-size-2);
+  line-height : calc( var(--font-size-2) * 1.7);
+  max-width: 40ch;
+  font-weight : 500;
+}
+
+</style>
