@@ -1,50 +1,52 @@
-# Welcome to [Astro](https://astro.build)
+# 🚀 Astro Component Library
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+This is my astro component library to build out static sites quicker.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## /src file structure
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+/assets -> static assets for fonts, global css, and images
 
+/components -> smaller components such as cards, buttons, logos etc
 
-## 🚀 Project Structure
+/layout -> Should only have 1 Layout.astro file here. This is the base layout for the site and will contain section blocks, components, and HTML
 
-Inside of your Astro project, you'll see the following folders and files:
+/pages -> All pages for the site
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+/sections -> larger groups of components/HTML that are used frequently
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Components
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+#### Back to Top
+Fixed back to top of page link
 
-Any static assets, like images, can be placed in the `public/` directory.
+#### Card
+Basic card component
 
-## 🧞 Commands
+#### CTA Link
+2 (usually) call to action buttons that go in the hero section
 
-All commands are run from the root of the project, from a terminal:
+#### Logo
+Site Logos
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+#### Mobile Menu Button
+Button to toggle mobile menu. Javascript and CSS animation all self contained
 
-## 👀 Want to learn more?
+#### Skip to Content
+Accessible Skip to content Link
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+#### Social Icon
+Social media icons
+
+### Sections
+
+### Nav
+Different styles of NavBars. Top, TopFixed, Left etc.
+
+### Hero
+Hero section of the site
+
+### Equal Columns
+Equal columns that collapse down to single columns on small screen
+
+### Even Colums
+Similar to even columns, but must have an even amount of children and no more than 4. Collapses from 4 to 2 to 1 columns depending on screen size
