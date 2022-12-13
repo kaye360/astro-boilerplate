@@ -1,0 +1,43 @@
+---
+
+const { 
+  heading,
+  bgColor = "hsl( var(--clr-primary-1) )",
+  img, // header image of card
+} = Astro.props
+
+---
+
+<div class="card-wrapper">
+
+  <img src={img} />
+  
+  <div class="card-inner">
+    
+    <h3>{ heading }</h3>
+
+    <slot />
+
+  </div>
+
+</div>
+
+
+<style define:vars={{ bgColor }} >
+
+  .card-wrapper {
+    background-color : var(--bgColor);
+    border-radius : 1rem;
+  }
+
+  .card-inner {
+    padding : 1rem;
+  }
+
+  img {
+    border-radius : 1rem;
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
+  }
+
+</style>

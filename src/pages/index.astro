@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/hero/overlay-wide/Hero.astro';
 import Nav from '../components/nav/top-fixed/Nav.astro';
-
+import EqualColumns from '../components/sections/EqualColumns.astro';
+import EvenColumns from '../components/sections/EvenColumns.astro';
+import Card from '../components/card/Card.astro';
 ---
 
 <Layout title="Home">
@@ -11,6 +13,77 @@ import Nav from '../components/nav/top-fixed/Nav.astro';
 	<Nav activePage="Home" />
 
 	<Hero />
+
+	<section class="container">
+
+		<h2 class="pxd">Equal Columns</h2>
+
+		<EqualColumns rowGap="1rem" colGap="1rem">
+
+			<Card 
+				img="/public/img-small-2.jpg"
+				heading="Dolor sit amet"
+			>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aspernatur iusto optio nobis perspiciatis dolores.
+			</Card>
+
+			<Card 
+				img="/public/img-small-3.jpg"
+				heading="Drferendis nobis repellendus"
+			>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis nobis repellendus facilis maiores, quod necessitatibus similique recusandae in sit obcaecati dolorum, minus, exercitationem adipisci! 
+			</Card>
+
+			<Card 
+				img="/public/img-small-4.jpg"
+				heading="Duod commodi asperiores"
+			>
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab sit qui ipsam, laboriosam earum temporibus sed, veritatis, quod commodi asperiores officiis minus animi totam ad. Excepturi non veniam sequi porro.
+			</Card>
+
+		</EqualColumns>
+
+	</section>
+
+
+	<section class="container">
+
+		<h2 class="pxd">Even Columns</h2>
+
+		<EvenColumns rowGap="1rem" colGap="1rem">
+
+			<Card 
+				img="/public/img-small-1.jpg"
+				heading="Lorem ipsum"
+			>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus nostrum placeat esse aliquid soluta autem sapiente vel ipsa facere velit!
+			</Card>
+
+			<Card 
+				img="/public/img-small-2.jpg"
+				heading="Ducimus nostrum placeat"
+			>
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, aspernatur iusto optio nobis perspiciatis dolores.
+			</Card>
+
+			<Card 
+				img="/public/img-small-3.jpg"
+				heading="Possimus, aspernatur iusto"
+			>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis nobis repellendus facilis maiores, quod necessitatibus similique recusandae in sit obcaecati dolorum, minus, exercitationem adipisci! Libero id culpa, earum voluptates ut qui laudantium asperiores, sapiente nam in voluptas numquam dignissimos delectus.
+			</Card>
+
+			<Card 
+				img="/public/img-small-4.jpg"
+				heading="Libero id culpa, earum"
+			>
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab sit qui ipsam, laboriosam earum temporibus sed, veritatis, quod commodi asperiores officiis minus animi totam ad. Excepturi non veniam sequi porro.
+			</Card>
+
+		</EvenColumns>
+
+	</section>
+
 
 	<main id="content">
 		This is the main content<br>
@@ -38,5 +111,6 @@ import Nav from '../components/nav/top-fixed/Nav.astro';
 </Layout>
 
 <style>
+
 	
 </style>
