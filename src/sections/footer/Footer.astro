@@ -1,0 +1,133 @@
+---
+import Logo from "../../components/logo/Logo.astro";
+import SocialIcon from "../../components/social-icon/SocialIcon.astro";
+import EqualColumns from "../columns/EqualColumns.astro";
+---
+
+<footer class="container">
+<EqualColumns colGap="2rem">
+
+
+
+<div class="mt2">
+  <Logo />
+  <p class="mt1">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo iusto placeat iure.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tenetur impedit magnam sapiente?
+  </p>
+</div>
+
+
+
+<div>
+  <h3>Info</h3>
+  <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Terms of Service</a></li>
+  </ul>
+
+</div>
+          
+<div>
+  <h3>Services</h3>
+  <ul>
+      <li><a href="#">Service 1</a></li>
+      <li><a href="#">Service 2</a></li>
+      <li><a href="#">Service 3</a></li>
+      <li><a href="#">Service 4</a></li>
+      <li><a href="#">Service 5</a></li>
+  </ul>
+</div>     
+
+<nav>
+  <h3>Social</h3>
+  <ul class="footer-socials">
+    <li>
+      <a href="#">
+        <SocialIcon name="Facebook" fill="red" />
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <SocialIcon name="Instagram" fill="hsl( var(--clr-primary-2) )" />
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <SocialIcon name="TikTok" fill="hsl( var(--clr-primary-2) )" />
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <SocialIcon name="WhatsApp" fill="hsl( var(--clr-primary-2) )" />
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <SocialIcon name="Twitter" fill="hsl( var(--clr-primary-2) )" />
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+</EqualColumns>
+
+
+
+<div class="footer-copyright">
+  &copy; Copyright 2022 Site Title. Website by <a href="https://joshkaye.ca" target="_blank">Josh Kaye</a>
+</div>
+
+
+
+</footer>
+
+
+
+
+<style>
+
+footer {
+  position : relative;
+  padding-inline: var(--spacing-x-default);
+  padding-block: var(--spacing-y-default);
+  color : hsl( var(--clr-primary-2) );
+}
+
+footer::before {
+  content: '';
+  position : absolute;
+  inset : 0 auto 0 50%;
+  z-index : -1;
+  transform: translateX(-50%);
+  
+  width : 100vw;
+  background-color : hsl( var(--clr-primary-7) );
+}
+
+.footer-socials {
+  padding :0;
+  display : flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  gap : 1rem;
+  width : 100%;
+}
+
+footer a {
+  color : hsl( var(--clr-primary-1) )
+}
+
+.footer-copyright {
+  padding : 3rem 0 0 0;
+  text-align: center;
+}
+
+</style>

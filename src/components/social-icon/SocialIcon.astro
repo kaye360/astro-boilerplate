@@ -1,6 +1,10 @@
 ---
 import { socialIcon } from "./social-icon"
-const { name, fill, size = '32' } = Astro.props
+const { 
+  name, 
+  fill = "hsl( var(--clr-primary-1) )", 
+  size = '32' 
+} = Astro.props
 
 let svg: string = socialIcon(name, fill)
 ---

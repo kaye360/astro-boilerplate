@@ -23,11 +23,12 @@ const { primaryLink, primaryText, secondaryLink, secondaryText} = Astro.props
 a {
   padding : 0.4rem 1rem;
   font-weight: 500;
+  letter-spacing: 0.05rem;
   color: hsl( var(--clr-secondary-7) );
 }
 
 a:hover, a:focus {
-  color: hsl( var(--clr-secondary-6) );
+  color: hsl( var(--clr-secondary-5) );
 }
 
 /* Primary Base State */
@@ -50,7 +51,7 @@ a:hover, a:focus {
   transform-origin: left;
   transform: scaleX(0);
   
-  background-color: hsl( var(--clr-tertiary-3) );
+  background-color: hsl( var(--clr-secondary-7) );
 }
 
 .primaryCTA::after {
@@ -72,7 +73,7 @@ a:hover, a:focus {
 /* Secondary */
 
 .secondaryCTA {
-  color: hsl( var(--clr-secondary-7) );
+  color: hsl( var(--clr-secondary-2) );
 }
 
 .secondaryCTA:hover, .secondaryCTA:focus {
